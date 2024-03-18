@@ -38,7 +38,7 @@ CLASS lcl_undo_redo IMPLEMENTATION.
       ASSIGN COMPONENT 'STORY'  OF STRUCTURE <fs_events> TO FIELD-SYMBOL(<fs_story>).
 
       CASE <fs_event>.
-        WHEN 'update'.
+        WHEN 'write'.
           update( <fs_story> ).
         WHEN 'undo'.
           undo( ).

@@ -22,8 +22,8 @@ CLASS zcl_undo_redo_handler IMPLEMENTATION.
   METHOD if_oo_adt_classrun~main.
     DATA lt_events TYPE ty_events.
 
-    lt_events = VALUE #( ( event = 'update' story = VALUE #( id = 1 name = 'My Strory 1' ) )
-                         ( event = 'update' story = VALUE #( id = 1 name = 'My Strory 2' ) )
+    lt_events = VALUE #( ( event = 'write' story = VALUE #( id = 1 name = 'My Strory 1' ) )
+                         ( event = 'write' story = VALUE #( id = 1 name = 'My Strory 2' ) )
                          ( event = 'undo'  )
                          ( event = 'redo'  )
                          ( event = 'redo'  ) ).
