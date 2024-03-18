@@ -1,6 +1,4 @@
-# abap_undo_redo_handler
-
-### Implement Text Editor Undo Redo features using ABAP.
+# Implement Text Editor Undo Redo features using ABAP.
 
 Since this task, in different variations, is often present in coding interviews, I was interested in how it could be solved using ABAP.
 
