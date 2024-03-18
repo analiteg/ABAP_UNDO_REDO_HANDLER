@@ -17,17 +17,18 @@ CLASS ltc_undo_redo_handler IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD event_handler.
-    DATA lt_events2 TYPE ty_events.
+    DATA lt_events  TYPE ty_events.
+    DATA exp_result TYPE story.
 
-    lt_events2 = VALUE #( ( event = 'update' story = VALUE #( id = 1 name = 'My Strory 1' ) )
-                          ( event = 'update' story = VALUE #( id = 1 name = 'My Strory 2' ) )
-                          ( event = 'undo'  )
-                          ( event = 'redo'  )
-                          ( event = 'redo'  ) ).
+    lt_events = VALUE #( ( event = 'update'  story = VALUE #( id = 1 name = 'My Strory 1' ) )
+                         ( event = 'update' story = VALUE #( id = 1 name = 'My Strory 2' ) )
+                         ( event = 'undo'  )
+                         ( event = 'redo'  )
+                         ( event = 'redo'  ) ).
 
-    DATA(my_result) = f_cut->get_result( it_events = lt_events2 ).
-
+    exp_result = VALUE #( id = 1 name = 'My Strory 2' ).
+    DATA(my_result) = f_cut->get_result( it_events = lt_events ).
     cl_abap_unit_assert=>assert_equals( act = my_result
-                                        exp = 0 ).
+                                        exp = exp_result ).
   ENDMETHOD.
 ENDCLASS.
